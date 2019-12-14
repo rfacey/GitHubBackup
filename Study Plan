@@ -1,0 +1,36 @@
+https://towardsdatascience.com/my-learning-plan-for-getting-into-data-science-from-scratch-9562f37b4dde
+
+Conceptual learning
+
+Courses and books will give the foundation of your data science skills
+Below are the books and courses that I recommend you study to understand how data science works. Take note that the learning resources below are shown in the exact order that I recommend you take them (based on both my experience and feedback from other people). An asterisk (*) indicates that I myself haven’t taken the course but it’s been strongly recommended by other data scientists to be taken at this stage.
+
+1. Python for Everybody Specialization (https://www.coursera.org/specializations/python) — This series of courses is great for the absolute beginner who wants to get started. Best course to take in order to get you over your fear of learning how to code.
+
+2. Machine Learning by Andrew Ng (https://www.coursera.org/learn/machine-learning?) — This course gave me the core foundation of my understanding of different machine learning models. Andrew Ng literally inspired me to pursue a career in machine learning.
+
+3. Learn Python 3 the Hard Way (https://www.amazon.com/Learn-More-Python-Hard-Way/dp/0134123484) — This book will create a solid foundation for your python skills (and coding skills in general). I cannot stress enough how great this book is at teaching basic concepts with practical lessons and well designed exercises.
+
+4. Applied Data Science with Python Specialization* (https://www.coursera.org/specializations/data-science-python) — This series of courses is a good way to glue your understanding of machine learning models with your coding skills. I personally know people who were able to get jobs in data science right after this specialization, since by then, they already had a decent toolkit of data science skills that they could use to solve real world problems.
+
+5. Introduction to Machine Learning for Coders (fast.ai) (http://course18.fast.ai/ml) — This course is taught by Jeremy Howard and he gives a very practical walkthrough on how to do machine learning properly with code. Get ready to learn how to code the random forest algorithm from scratch!
+
+6. Practical Deep Learning for Coders (fast.ai) (https://course.fast.ai/) — This two part course is the best resource out there for both 1) aspiring data scientists trying to get into deep learning and 2) more experienced data scientists trying to get deeper into what it takes to get state-of-the-art results in deep learning. In the first lesson, Jeremy Howard shows you right away how to get cutting edge accuracy in the ImageNet dataset using the fastai library. In later episodes, you will get more and more used to implementing models directly on PyTorch. Highly recommended!
+
+Practical learning
+
+Some would argue that true learning only happens when you are working on a concrete project and solving real world problems with your data science skills. Below are recommended ways to gain experience by applying your knowledge (i.e. learn by doing).
+
+1. CodeSignal (https://codesignal.com/) — When I was new to coding, I had a difficult time understanding how my basic skills could be used to solve real world problems. Thankfully, CodeSignal (formerly called CodeFights) had fun coding challenges that allowed me to compete against bots and real people. This made me comfortable with the process of solving problems with code. The website started out as a platform for competitive coding but now focuses on preparing developers for the coding exams during interviews with tech companies.
+
+2. Kaggle (https://www.kaggle.com/) — This is a platform where data scientists come together to 1) share data and code, and 2) compete on training ML algorithms that best reach a target objective (e.g. predict housing prices most accurately). Even if you don’t explicitly compete, I think the biggest value add from Kaggle is the availability of “code solutions” from competitions. Reading the code of other more experienced data scientists is one of the fastest ways to get better because it teaches you best practices while getting you comfortable with reading and writing ML code from scratch yourself.
+
+3. Passion projects — Even if you don’t have a data science job but want to get into the field, think of a cool project to execute! Identify a problem you want to solve or even something fun you want to do, then create a machine learning model for this. It’s even better if you decide to deploy it as an app accessible on the internet! (e.g. I recently made a joke generator bot since I like jokes and I plan to deploy it publicly soon!)
+
+4. Internship / full-time job — This one should be obvious. The best way to learn by doing is to get yourself a job in data science. The cold start problem is when companies want you to have data science skills, but how do you get these skills when you don’t have work experience? All the steps enumerated above should equip you with the necessary skills to be immediately useful to a data science team. So get to work!
+
+Conclusion
+
+And that’s how I gained the skills that I possess today and I still have a lot to learn! It has been a long arduous journey but every single piece of effort was worth it. Everyday, I feel so privileged to be working in a profession that is both interesting and impactful at the same time. I am so happy in this profession that I took the time to create this guide so that more people can get into the same field.
+As a final note, I will leave you with the message below:
+The biggest determinant of whether or not you will succeed in getting into data science is your willingness to 1) learn lessons, 2) persevere through challenges, and 3) take the opportunities that are available.
