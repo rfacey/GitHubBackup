@@ -6,10 +6,13 @@ Courses and books will give the foundation of your data science skills
 Below are the books and courses that I recommend you study to understand how data science works. Take note that the learning resources below are shown in the exact order that I recommend you take them (based on both my experience and feedback from other people). An asterisk (*) indicates that I myself haven’t taken the course but it’s been strongly recommended by other data scientists to be taken at this stage.
 
 1. Python for Everybody Specialization (https://www.coursera.org/specializations/python) — This series of courses is great for the absolute beginner who wants to get started. Best course to take in order to get you over your fear of learning how to code.
+    Self note: Skipping this for now. The class is not free.
 
 2. Machine Learning by Andrew Ng (https://www.coursera.org/learn/machine-learning?) — This course gave me the core foundation of my understanding of different machine learning models. Andrew Ng literally inspired me to pursue a career in machine learning.
 
 3. Learn Python 3 the Hard Way (https://www.amazon.com/Learn-More-Python-Hard-Way/dp/0134123484) — This book will create a solid foundation for your python skills (and coding skills in general). I cannot stress enough how great this book is at teaching basic concepts with practical lessons and well designed exercises.
+    Self note: Don't buy! Use the following link.
+    Self note: https://www.programmer-books.com/wp-content/uploads/2018/12/learn-python-3-hard-way.pdf
 
 4. Applied Data Science with Python Specialization* (https://www.coursera.org/specializations/data-science-python) — This series of courses is a good way to glue your understanding of machine learning models with your coding skills. I personally know people who were able to get jobs in data science right after this specialization, since by then, they already had a decent toolkit of data science skills that they could use to solve real world problems.
 
