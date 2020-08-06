@@ -73,7 +73,7 @@ try:
             phrase = PHRASES[snippet]
             question, answer = convert(snippet, phrase)
             if PHRASE_FIRST:
-                question, answer = answer, # QUESTION:
+                question, answer = answer, question
 
             print(question)
 
