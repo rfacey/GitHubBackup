@@ -26,24 +26,24 @@ class Person(object):
         ## Person has a pet of some kind
         self.pet = None
 
-## ??
+## Employee is-a Person
 class Employee(Person):
 
     def __init__(self, name, salary):
-        ## ?? hmm what is this strange magic?
+        ## Changes the items under "Person" to also have a salary
         super(Employee, self).__init__(name)
-        ## ??
+        ## Employee has-a salary
         self.salary = salary
 
-## ??
-class Fish(object):
+## Fish is-a object
+class Fish(Object):
     pass
 
-## ??
+## Salmon is-a Fish
 class Salmon(Fish):
     pass
 
-## ??
+## Halibut is-a Fish
 class Halibut(Fish):
     pass
 
@@ -51,26 +51,26 @@ class Halibut(Fish):
 ## rover is-a Dog
 rover = Dog("Rover")
 
-## ??
+## satan is-a Cat
 satan = Cat("Satan")
 
-## ??
+## mary is-a Person
 mary = Person("Mary")
 
-## ??
+## Mary has-a pet named satan
 mary.pet = satan
 
-## ??
+## frank is a person with a salary of 120000
 frank = Employee("Frank", 120000)
 
-## ??
+## frnak has-a pet named rover
 frank.pet = rover
 
-## ??
+## flipper is-a fish
 flipper = Fish()
 
-## ??
+## crouse is-a Salmon
 crouse = Salmon()
 
-## ??
+## harry is-a Halibut
 harry = Halibut()
