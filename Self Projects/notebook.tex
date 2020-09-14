@@ -283,13 +283,9 @@
     \section{Question 01}\label{question-01}
 
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}5}]:} \PY{k+kn}{import} \PY{n+nn}{numpy} \PY{k}{as} \PY{n+nn}{np}
+{\color{incolor}In [{\color{incolor}1}]:} \PY{k+kn}{import} \PY{n+nn}{numpy} \PY{k}{as} \PY{n+nn}{np}
         \PY{k+kn}{import} \PY{n+nn}{matplotlib}\PY{n+nn}{.}\PY{n+nn}{pyplot} \PY{k}{as} \PY{n+nn}{plt} 
         \PY{k+kn}{import} \PY{n+nn}{math}
-        
-        \PY{c+c1}{\PYZsh{}\PYZsh{} from scipy.misc import derivative}
-        
-        \PY{c+c1}{\PYZsh{}\PYZsh{} import numpy as np }
 \end{Verbatim}
 
 
@@ -308,20 +304,82 @@
 \end{Verbatim}
             
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}3}]:} \PY{n}{N} \PY{o}{=} \PY{l+m+mi}{30}
-        \PY{n}{y} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{zeros}\PY{p}{(}\PY{n}{N}\PY{p}{)}
-        \PY{n}{x} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{linspace}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,} \PY{n}{np}\PY{o}{.}\PY{n}{pi}\PY{p}{,} \PY{n}{num} \PY{o}{=} \PY{l+m+mi}{30}\PY{p}{)}
-        \PY{n}{plt}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{x}\PY{p}{,} \PY{n}{y}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{o}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
-        \PY{n}{plt}\PY{o}{.}\PY{n}{ylim}\PY{p}{(}\PY{p}{[}\PY{o}{\PYZhy{}}\PY{l+m+mf}{0.25}\PY{p}{,} \PY{o}{.}\PY{l+m+mi}{25}\PY{p}{]}\PY{p}{)}
-        \PY{n}{plt}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{p}{)}
+{\color{incolor}In [{\color{incolor}3}]:} \PY{n}{x} \PY{o}{=} \PY{p}{(}\PY{n}{np}\PY{o}{.}\PY{n}{linspace}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,} \PY{n}{np}\PY{o}{.}\PY{n}{pi}\PY{p}{,} \PY{n}{num} \PY{o}{=} \PY{l+m+mi}{30}\PY{p}{)}\PY{p}{)}
 \end{Verbatim}
 
 
-    \begin{center}
-    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_3_0.png}
-    \end{center}
-    { \hspace*{\fill} \\}
-    
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}4}]:} \PY{c+c1}{\PYZsh{}\PYZsh{} Define the functions for the overall formulas}
+        
+        \PY{k}{def} \PY{n+nf}{f}\PY{p}{(}\PY{n}{y}\PY{p}{)}\PY{p}{:}
+            \PY{k}{return} \PY{p}{(}\PY{n}{y}\PY{o}{\PYZhy{}}\PY{l+m+mf}{0.9}\PY{o}{*}\PY{n}{np}\PY{o}{.}\PY{n}{sin}\PY{p}{(}\PY{n}{y}\PY{p}{)}\PY{p}{)}
+        
+        \PY{k}{def} \PY{n+nf}{fp}\PY{p}{(}\PY{n}{y}\PY{p}{)}\PY{p}{:}
+            \PY{k}{return} \PY{p}{(}\PY{l+m+mi}{1}\PY{o}{\PYZhy{}}\PY{p}{(}\PY{l+m+mf}{0.9}\PY{o}{*}\PY{n}{np}\PY{o}{.}\PY{n}{cos}\PY{p}{(}\PY{n}{y}\PY{p}{)}\PY{p}{)}\PY{p}{)}
+        
+        \PY{c+c1}{\PYZsh{}\PYZsh{} Define the function to solve for X. }
+        \PY{c+c1}{\PYZsh{}\PYZsh{} Each input needs its own loop, find out which input is being entered and play with iterations}
+        \PY{c+c1}{\PYZsh{}\PYZsh{} No need to add a spot in the function for tolerance. It is already set in class as 10**(\PYZhy{}6)}
+        
+        \PY{k}{def} \PY{n+nf}{Prob1}\PY{p}{(}\PY{n}{n}\PY{p}{,} \PY{n}{Iterations}\PY{p}{)}\PY{p}{:}
+            \PY{n}{y} \PY{o}{=} \PY{l+m+mi}{0}
+            \PY{n}{i} \PY{o}{=} \PY{l+m+mi}{0}
+            \PY{k}{while} \PY{n}{i} \PY{o}{\PYZlt{}}\PY{o}{=} \PY{n}{Iterations}\PY{p}{:}
+                \PY{n}{x} \PY{o}{=} \PY{n}{y} \PY{o}{\PYZhy{}} \PY{p}{(}\PY{p}{(}\PY{n}{f}\PY{p}{(}\PY{n}{y}\PY{p}{)}\PY{o}{\PYZhy{}}\PY{n}{n}\PY{p}{)}\PY{o}{/}\PY{n}{fp}\PY{p}{(}\PY{n}{y}\PY{p}{)}\PY{p}{)}
+                \PY{k}{if} \PY{n}{np}\PY{o}{.}\PY{n}{absolute}\PY{p}{(}\PY{n}{x} \PY{o}{\PYZhy{}} \PY{n}{y}\PY{p}{)} \PY{o}{\PYZlt{}} \PY{l+m+mi}{10}\PY{o}{*}\PY{o}{*}\PY{p}{(}\PY{o}{\PYZhy{}}\PY{l+m+mi}{6}\PY{p}{)}\PY{p}{:}
+                    \PY{n+nb}{print}\PY{p}{(}\PY{n}{x}\PY{p}{)}
+                    \PY{k}{break}
+                \PY{n}{i} \PY{o}{=} \PY{n}{i} \PY{o}{+} \PY{l+m+mi}{1}
+                \PY{n}{y} \PY{o}{=} \PY{n}{x}
+            \PY{k}{if} \PY{n}{i} \PY{o}{\PYZgt{}} \PY{n}{Iterations}\PY{p}{:}
+                \PY{n+nb}{print}\PY{p}{(}\PY{n}{f}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{The method failed after N\PYZus{}0 iterations, N\PYZus{}0 = }\PY{l+s+si}{\PYZob{}Iterations\PYZcb{}}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}5}]:} \PY{c+c1}{\PYZsh{}\PYZsh{} Run the function to solve for x in each iteration}
+        \PY{c+c1}{\PYZsh{}\PYZsh{} Self note, had to raise the number of iterations to something high}
+        
+        \PY{n}{x} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{linspace}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,} \PY{n}{np}\PY{o}{.}\PY{n}{pi}\PY{p}{,} \PY{n}{num} \PY{o}{=} \PY{l+m+mi}{30}\PY{p}{)}
+        \PY{k}{for} \PY{n}{n} \PY{o+ow}{in} \PY{n}{x}\PY{p}{:}
+            \PY{n}{Prob1}\PY{p}{(}\PY{n}{n}\PY{p}{,} \PY{l+m+mi}{100}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+0.0
+0.6604701856042979
+0.9473407987171497
+1.1444131303639302
+1.300691844877185
+1.433140220934481
+1.5497860499774534
+1.655117812587781
+1.7519234076803416
+1.8420654702561892
+1.9268572778959292
+2.007264078579107
+2.0840193067347905
+2.1576957200296207
+2.2287510506335493
+2.297558467587193
+2.3644275836436326
+2.4296193565068216
+2.4933569231885917
+2.5558336524672014
+2.617219250484121
+2.677664476989677
+2.7373048536363815
+2.7962636311392703
+2.854654205967585
+2.912582125684288
+2.970146786655176
+3.027442903313447
+3.0845618111153983
+3.141592653589793
+
+    \end{Verbatim}
+
     \section{Question 2}\label{question-2}
 
     Step 1: Find the max time and amount by getting the derivate and solving
@@ -352,7 +410,7 @@ max amount.
 
 
     \begin{center}
-    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_8_0.png}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_10_0.png}
     \end{center}
     { \hspace*{\fill} \\}
     
@@ -360,7 +418,7 @@ max amount.
 now be at the 'x' axis. Plugged it into the Newton method and solved.
 
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}8}]:} \PY{k}{def} \PY{n+nf}{f}\PY{p}{(}\PY{n}{t}\PY{p}{)}\PY{p}{:}
+{\color{incolor}In [{\color{incolor}7}]:} \PY{k}{def} \PY{n+nf}{f}\PY{p}{(}\PY{n}{t}\PY{p}{)}\PY{p}{:}
             \PY{k}{return} \PY{p}{(}\PY{n}{math}\PY{o}{.}\PY{n}{exp}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{)}\PY{o}{/}\PY{l+m+mi}{3}\PY{p}{)} \PY{o}{*} \PY{n}{t} \PY{o}{*} \PY{p}{(}\PY{n}{math}\PY{o}{.}\PY{n}{exp}\PY{p}{(}\PY{o}{\PYZhy{}}\PY{n}{t}\PY{o}{/}\PY{l+m+mi}{3}\PY{p}{)}\PY{p}{)} \PY{o}{\PYZhy{}} \PY{l+m+mf}{0.25}
         
         \PY{k}{def} \PY{n+nf}{fp}\PY{p}{(}\PY{n}{t}\PY{p}{)}\PY{p}{:}
@@ -412,12 +470,12 @@ The procedure was successful. p\_0: 11.07790354509074 n: 3
     The second injection should be given at 11.0078 hours or
 
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}40}]:} \PY{n}{p\PYZus{}0} \PY{o}{*} \PY{l+m+mi}{60}
+{\color{incolor}In [{\color{incolor}8}]:} \PY{n}{p\PYZus{}0} \PY{o}{*} \PY{l+m+mi}{60}
 \end{Verbatim}
 
 
 \begin{Verbatim}[commandchars=\\\{\}]
-{\color{outcolor}Out[{\color{outcolor}40}]:} 664.674212705444
+{\color{outcolor}Out[{\color{outcolor}8}]:} 664.6742127054443
 \end{Verbatim}
             
     \^{} Number of minutes after the first injection.
@@ -491,7 +549,7 @@ The procedure was successful. p\_0: 9.867844878232496 n: 11
     \subsection{Newton's Method}\label{newtons-method}
 
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}14}]:} \PY{c+c1}{\PYZsh{}\PYZsh{} Newton\PYZsq{}s method}
+{\color{incolor}In [{\color{incolor}11}]:} \PY{c+c1}{\PYZsh{}\PYZsh{} Newton\PYZsq{}s method}
          \PY{c+c1}{\PYZsh{}\PYZsh{} Testing for pg.68 }
          \PY{c+c1}{\PYZsh{}\PYZsh{} Chapter 2.3 Example 1}
          
@@ -508,7 +566,6 @@ The procedure was successful. p\_0: 9.867844878232496 n: 11
          \PY{n}{Iterations} \PY{o}{=} \PY{l+m+mi}{10}
          
          \PY{n}{results} \PY{o}{=} \PY{p}{[}\PY{p}{]}   \PY{c+c1}{\PYZsh{}\PYZsh{} Need to save the results to something}
-         \PY{n}{results}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{p\PYZus{}0}\PY{p}{)}
          \PY{c+c1}{\PYZsh{}\PYZsh{} Step 1 \PYZhy{} Set i = 1}
          
          \PY{n}{i} \PY{o}{=} \PY{l+m+mi}{1}
@@ -524,7 +581,7 @@ The procedure was successful. p\_0: 9.867844878232496 n: 11
          \PY{c+c1}{\PYZsh{}\PYZsh{} Step 4 if |p \PYZhy{} p\PYZus{}0| \PYZlt{} TOL then OUTPUT(p); (The procedure was successful.) STOP}
          
              \PY{k}{if} \PY{n}{np}\PY{o}{.}\PY{n}{absolute}\PY{p}{(}\PY{n}{p} \PY{o}{\PYZhy{}} \PY{n}{p\PYZus{}0}\PY{p}{)} \PY{o}{\PYZlt{}} \PY{n}{TOL}\PY{p}{:}
-                 \PY{n+nb}{print}\PY{p}{(}\PY{n}{f}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{The procedure was successful. p\PYZus{}0: }\PY{l+s+si}{\PYZob{}p\PYZus{}0\PYZcb{}}\PY{l+s+s1}{ n: }\PY{l+s+si}{\PYZob{}i\PYZcb{}}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+                 \PY{n+nb}{print}\PY{p}{(}\PY{n}{f}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{The procedure was successful. p\PYZus{}0: }\PY{l+s+si}{\PYZob{}p\PYZus{}0\PYZcb{}}\PY{l+s+s1}{ n: }\PY{l+s+s1}{\PYZob{}}\PY{l+s+s1}{i\PYZhy{}1\PYZcb{}}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
                  \PY{k}{break}
          \PY{c+c1}{\PYZsh{}\PYZsh{} Step 5 Set i= i + 1.}
              \PY{n}{i} \PY{o}{=} \PY{n}{i} \PY{o}{+} \PY{l+m+mi}{1}
@@ -541,7 +598,7 @@ The procedure was successful. p\_0: 9.867844878232496 n: 11
 
 
     \begin{Verbatim}[commandchars=\\\{\}]
-The procedure was successful. p\_0: 1.4142135623746899 n: 5
+The procedure was successful. p\_0: 1.4142135623746899 n: 4
 
     \end{Verbatim}
 
