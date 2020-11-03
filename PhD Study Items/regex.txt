@@ -1,0 +1,55 @@
+
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage[utf8]{inputenc}
+
+\title{\bf COMS 6100 - Homework 10}
+\author{roberto.facey}
+\date{October 2020}
+
+\begin{document}
+
+\maketitle
+
+\end{verbatim} 
+
+\item {\bf Command}: \Q{egrep --color=auto ing 161.txt} 
+\begin{verbatim}
+\end{verbatim} 
+
+\item {\bf Command}: \Q{egrep --color=auto ^B 161.txt} 
+\begin{verbatim}
+\end{verbatim} 
+
+\item {\bf Command}: \Q{egrep --color=auto l$ 161.txt} 
+\begin{verbatim}
+\end{verbatim} 
+
+\item {\bf Command}: \Q{egrep --color=auto "\.$" 161.txt} 
+\begin{verbatim}
+\end{verbatim} 
+
+\item {\bf Command}: \Q{egrep -v  --color=auto  "the" 161.txt} 
+\begin{verbatim}
+\end{verbatim} 
+
+\item {\bf Command}: \Q{egrep -v  --color=auto " the " 161.txt} 
+\begin{verbatim}
+\end{verbatim} 
+
+\item {\bf Command}: \Q{egrep --color=auto ".oo.ness" 161.txt} 
+\begin{verbatim}
+\end{verbatim} 
+
+\item {\bf Command}: \Q{egrep --color=auto T[a-z]* 161.txt} 
+\begin{verbatim}
+\end{verbatim} 
+
+\item {\bf Command}: \Q{egrep -E  --color=auto "bo+" 161.txt} 
+\begin{verbatim}
+\end{verbatim} 
+
+\item {\bf Command}: \Q{egrep --color=auto "bo+" 161.txt} 
+\begin{verbatim}
+
+\end{document}

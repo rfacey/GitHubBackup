@@ -1,0 +1,50 @@
+\begin{itemize}
+\item egrep --color=auto ing 161.txt
+\begin{verbatim}
+\end{verbatim} 
+
+\begin{itemize}
+\item egrep --color=auto ^B 161.txt
+\begin{verbatim}
+\end{verbatim} 
+
+\begin{itemize}
+\item egrep --color=auto l$ 161.txt
+\begin{verbatim}
+\end{verbatim} 
+
+\begin{itemize}
+\item egrep --color=auto "\.$" 161.txt
+\begin{verbatim}
+\end{verbatim} 
+
+\begin{itemize}
+\item egrep -v  --color=auto  "the" 161.txt
+\begin{verbatim}
+\end{verbatim} 
+
+\begin{itemize}
+\item egrep -v  --color=auto " the " 161.txt
+\begin{verbatim}
+\end{verbatim} 
+
+\begin{itemize}
+\item egrep --color=auto ".oo.ness" 161.txt
+\begin{verbatim}
+\end{verbatim} 
+
+\begin{itemize}
+\item egrep --color=auto T[a-z]* 161.txt
+\begin{verbatim}
+\end{verbatim} 
+
+\begin{itemize}
+\item egrep -E  --color=auto "bo+" 161.txt
+\begin{verbatim}
+\end{verbatim} 
+
+\begin{itemize}
+\item egrep --color=auto "bo+" 161.txt
+\begin{verbatim}
+\end{verbatim} 
+
