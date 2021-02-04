@@ -1,0 +1,151 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath}
+\usepackage{graphicx}
+%\author{\bf Wallin}
+\title{\bf COMS 6100 - Quiz-ercise 4 - SSH}
+\date{ \today}
+\begin{document}
+	\maketitle
+
+
+
+%\begin{verbatim}
+%\end{verbatim}
+
+\newcommand{\vsp}{\vskip 0.25in}
+As you go through this exercise, past the commands and the results into a latex file. (Use the verbatim blocks to prevent the output from being formatted.  You will submit this final file to the class dropbox.
+
+To set up the directories and files:
+
+\begin{itemize}
+\item Log onto one of the OrionXX workstations.  Note which number it is (01-12).
+\begin{verbatim}
+    ssh orion06.cs.mtsu.edu
+\end{verbatim}
+
+\item cd /localstorage
+\begin{verbatim}
+    cd /localstorage
+\end{verbatim}
+
+\item mkdir {\it your username}
+\begin{verbatim}
+    mkdir rf2u
+\end{verbatim}
+
+\item cd {\it your username}
+\begin{verbatim}
+    cd rf2u
+\end{verbatim}
+
+\item touch MONKEY.txt
+\begin{verbatim}
+    touch MONKEY.txt
+\end{verbatim}
+
+\item mkdir mystuff
+\begin{verbatim}
+    mkdir mystuff
+\end{verbatim}
+
+\item cd mystuff
+\begin{verbatim}
+    cd mystuff
+\end{verbatim}
+
+\item touch README.txt
+\begin{verbatim}
+    touch README.txt
+\end{verbatim}
+
+\item touch DUCKY.txt
+\begin{verbatim}
+    touch DUCKY.txt
+\end{verbatim}
+
+\item ssh herschel.cs.mtsu.edu ``mkdir kitty''
+\begin{verbatim}
+    ssh herschel.cs.mtsu.edu "mkdir kitty"
+\end{verbatim}
+
+\end{itemize}
+
+
+\begin{enumerate}
+
+
+\item Use wget to grab the file at htto://www.cs.mtsu.edu/~jwallin/6100/sample1.txt into your kitty directory.
+\vsp
+\begin{verbatim}
+    wget cs.mtsu.edu/~jwallin/6100/sample.txt
+\end{verbatim}
+
+
+\item Copy  (using scp) README.txt from orionXX to the kitty directory on herschel.   (The full address is herschel.cs.mtsu.edu).
+\vsp
+\begin{verbatim}
+    scp orion06.cs.mtsu.edu:/localstorage/rf2u/mystuff/README.txt ~/kitty/
+\end{verbatim}
+
+
+\item Execute a command to list the directory contents of the kitty directory on hershcel using ssh.
+\vsp
+\begin{verbatim}
+    ssh herschel.cs.mtsu.edu "ls ~/kitty"
+\end{verbatim}
+
+
+\item Log into herschel using ssh.
+\vsp
+\begin{verbatim}
+    ssh herschel.cs.mtsu.edu
+\end{verbatim}
+
+\item cd to the kitty directory
+\vsp
+\begin{verbatim}
+    cd kitty
+\end{verbatim}
+
+\item  Copy  DUCKY.txt  from the mystuff directory on orionXX to hershel using scp.
+\vsp
+\begin{verbatim}
+    scp orion06.cs.mtsu.edu:/localstorage/rf2u/mystuff/DUCKY.txt ~
+\end{verbatim}
+
+
+\item Use sftp to access the files on orionXX.   Get the rest of the files from the mystuff directory and put them into the kitty directory.
+\vsp
+\begin{verbatim}
+    sftp orion06.cs.mtsu.edu
+    get /localstorage/rf2u/mystuff/*
+    exit
+\end{verbatim}
+
+\item Create  a file called PIGGY.txt inside the kitty directory.  (Hint: use the touch command.)
+\vsp
+\begin{verbatim}
+    touch PIGGY.txt
+\end{verbatim}
+
+\item Using rsync, synchronize all the files in the kitty directory to the directory mystuff.
+\vsp
+\begin{verbatim}
+    rsync -a ./ orion06.cs.mtsu.edu:/localstorage/rf2u/mystuff/
+\end{verbatim}
+
+\item Create a compressed tar ball of the files in the kitty directory.
+\vsp
+\begin{verbatim}
+    tar -cvf Quizercise4.tar .
+\end{verbatim}
+
+
+\item Upload the pdf file and the tex file to D2L.   (You will need to rename the tex to txt to do the upload.
+ 
+\end{enumerate}
+\bigskip
+
+		
+
+\end{document}

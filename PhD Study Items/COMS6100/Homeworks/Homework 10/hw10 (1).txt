@@ -1,0 +1,59 @@
+import os
+
+commands = []
+commandsFile = open("commands.txt", "r")
+for line in commandsFile:
+    commands.append(line.strip())
+
+LatexEssentialBegin = []
+LatexEssentialEnd = []
+
+LatexEssentialBegin = '''
+\\documentclass[11pt]{article}
+\\usepackage{amsmath}
+\\usepackage{graphicx}
+
+\\title{\\bf COMS 6100 - Homework 10}
+\\author{roberto.facey}
+\\date{October 2020}
+
+\\begin{document}
+
+\\maketitle
+
+\\begin{enumerate}
+
+'''
+
+LatexEssentialEnd = '''
+\\end{enumerate}
+\\end{document}
+'''
+
+def LatexClean(text):
+    cleanedText = text.replace("\\","\\textbackslash")
+    cleanedText = cleanedText.replace("--","\\texttt{-{}-}")
+    cleanedText = cleanedText.replace("^","\\textasciicircum ")
+    cleanedText = cleanedText.replace("$","\\textdollar {}")
+    return cleanedText
+
+file = open("regex.tex", "w")
+file.truncate()
+file.write(LatexEssentialBegin)
+file.close()
+
+for line in commands:
+    with open("regex.tex", "a") as loopedfile:
+        loopedfile.write("\\item {\\bf Command}: \\verb " + LatexClean(line) + " \n")
+        loopedfile.write("\\begin{verbatim}\n")
+
+    os.system(f"{line} | head -10 >> regex.tex")
+
+    with open("regex.tex", "a") as loopedfile:
+        loopedfile.write("\\end{verbatim}\n\n")
+
+file = open("regex.tex", "a")
+file.write(LatexEssentialEnd)
+file.close()
+
+os.system("pdflatex regex.tex")

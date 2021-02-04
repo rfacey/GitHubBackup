@@ -1,0 +1,165 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath}
+\usepackage{graphicx}
+%\author{\bf Facey}
+\title{\bf COMS 6100 - Homework 9/Quiz - Regex }
+\date{ \today}
+\begin{document}
+	\maketitle
+
+%\begin{verbatim}
+%\end{verbatim}
+
+\newcommand{\vsp}{\vskip 0.6in}
+
+\newcommand{\hide}{}
+%\newcommand{\hide}[1]{\ignorespaces}
+
+
+It will help to use color highlighting as you answer these questions.
+Place the your grep command and the top 10 lines of output in the verbatim blocks within the latex file.   Turn the latex into pdf, and upload it to dropbox (hw9).
+
+Write a regular expressionsthat do the following:
+\begin{enumerate}
+
+\item 
+{Finds all the strings with the word `Dash' in them.}
+
+    \begin{verbatim}
+grep Dash 161.txt
+
+
+almost ashamed of having authorised; and even the Dashwoods were at the
+best terms imaginable with the Dashwoods; and setting aside the
+her.  Mrs. Dashwood was acting on motives of policy as well as pleasure
+Marianne Dashwood was born to an extraordinary fate.  She was born to
+Mrs. Dashwood was prudent enough to remain at the cottage, without
+    \end{verbatim}
+\vsp
+
+\item 
+{Find all the strings that begin with the letter D, followed by a lower case letter.}
+
+    \begin{verbatim}
+grep D.[a-z]  161.txt
+
+Project Gutenberg-tm work, and (c) any Defect you cause.
+     Chief Executive and Director
+Section 4.  Information about Donations to the Project Gutenberg
+methods and addresses.  Donations are accepted in a number of other
+editions, all of which are confirmed as Public Domain in the U.S.
+
+
+    \end{verbatim}
+\vsp
+
+\item 
+  {All the strings that start at the beginning of the line and end with the letter n.  Spaces and punctuation can be included in these strings.}
+
+    \begin{verbatim}
+grep ^.*n$ 161.txt
+
+Foundation
+Revenue Service.  The Foundation's EIN or federal tax identification
+Literary Archive Foundation
+have not met the solicitation requirements, we know of no prohibition
+Please check the Project Gutenberg Web pages for current donation
+    \end{verbatim}
+\vsp
+
+\item 
+{Shows all the lines that do not contain a capital A.}
+
+    \begin{verbatim}
+grep -v A 161.txt
+
+     http://www.gutenberg.net
+
+This Web site includes information about Project Gutenberg-tm,
+including how to make donations to the Project Gutenberg Literary
+subscribe to our email newsletter to hear about new eBooks.
+    \end{verbatim}
+\vsp
+
+\item All the strings that start with a space, only have letters in them, and end with a comma.
+
+    \begin{verbatim}
+grep ^[[:space:]].*[a-zA-Z]*[,]$ 161.txt
+
+     another's.  Sincerely wish you happy in your choice,
+     proper.  I can safely say I owe you no ill-will,
+     place your dear brother has great curiosity to see,
+     few lines, and shall always remain,
+     "Your sincere well-wisher, friend, and sister,
+    \end{verbatim}
+  This is equivalent to the words just before a comma - including the comma.
+\vsp
+
+\item Find all the lines that start with a capital letter and end with a period.  
+
+    \begin{verbatim}
+grep ^[A-Z].*[.]$ 161.txt
+
+DAMAGE.
+WARRANTIES OF MERCHANTIBILITY OR FITNESS FOR ANY PURPOSE.
+Project Gutenberg-tm work, and (c) any Defect you cause.
+The Foundation's principal office is located at 4557 Melan Dr. S.
+Gutenberg-tm eBooks with only a loose network of volunteer support.
+    \end{verbatim}
+\vsp
+
+
+\item All the strings that start with the letters ``Al" and end with some other letters (not punctuation.)
+
+    \begin{verbatim}
+grep Al[a-z]* 161.txt
+
+it were more valuable.  Allow me to congratulate you on having so
+no smiles.  All within Elinor's breast was satisfaction, silent and
+impossible to be calm.  All that remained to be done was to be speedy;
+Allenham, satisfied with myself, delighted with every body!  But in
+was impossible.  All that I had to do, was to avoid you both.  I sent
+    \end{verbatim}
+\vsp
+
+\item  Find all the words that start with ``S'' and end with ``e''.   (Hint:   $\backslash s$ is the symbol for any space character.   Use the $\backslash w$ character for any letter that is upper or lower case.)
+
+    \begin{verbatim}
+grep '\bS\w*e\b' 161.txt
+
+Project Gutenberg-tm depends upon and cannot survive without wide
+particular state visit http://pglaf.org
+Most people start at our Web site which has the main PG search facility:
+This Web site includes information about Project Gutenberg-tm,
+subscribe to our email newsletter to hear about new eBooks.
+    \end{verbatim}
+\vsp
+
+\item Find all the lines who's third letter is a an `l' and who's 8th character is a `g'. 
+
+    \begin{verbatim}
+grep "^.[a-zA-Z]l[a-zA-Z][a-zA-Z][a-zA-Z][a-zA-Z]g" 161.txt 
+
+ relating some circumstances which nothing but a VERY sincere
+    \end{verbatim}
+\vsp
+
+\item Find all the lines that have 3 (or more) comma separated strings.
+
+    \begin{verbatim}
+grep .*,.*,.*, 161.txt
+
+LIABLE TO YOU FOR ACTUAL, DIRECT, INDIRECT, CONSEQUENTIAL, PUNITIVE OR
+harmless from all liability, costs and expenses, including legal fees,
+work, (b) alteration, modification, or additions or deletions to any
+Fairbanks, AK, 99712., but its volunteers and employees are scattered
+809 North 1500 West, Salt Lake City, UT 84116, (801) 596-1887, email
+
+    \end{verbatim}
+
+
+\end{enumerate}
+
+
+
+\end{document}

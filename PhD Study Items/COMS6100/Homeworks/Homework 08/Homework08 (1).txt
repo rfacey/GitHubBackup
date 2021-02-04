@@ -1,0 +1,562 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath}
+\usepackage{graphicx}
+%\author{\bf Facey}
+\title{\bf COMS 6100 - Homework 8 - Linux - Regular Expressions}
+\date{ \today}
+\begin{document}
+	\maketitle
+
+\begin{enumerate}
+
+\item {\bf Command}: \Q{grep \texttt{-{}-}color=auto ing 161.txt}
+\begin{itemize}
+\item {\bf Prediction:}
+This command will search for "ing" and color it.
+\item {\bf Section of actual output}
+\begin{verbatim}
+The Foundation is committed to complying with the laws regulating
+against accepting unsolicited donations from donors in such states who
+any statements concerning tax treatment of donations received from
+ways including including checks, online payments and credit card
+including how to make donations to the Project Gutenberg Literary
+\end{verbatim}
+\item {\bf Analysis:}
+It looks in the file words containing "ing" and returns the whole line. It also highlights in "ing" in each line.
+\end{itemize}
+\item {\bf Command}: \Q{grep \texttt{-{}-}color=auto \textasciicircum B 161.txt}
+\begin{itemize}
+\item {\bf Prediction:}
+This command will search for anything that starts with a capital B. 
+\item {\bf Section of actual output}
+\begin{verbatim}
+But so little interest had he taken in the matter, that he owed all his
+Brandon seems a great deal at home, nobody can tell what may
+But though Mrs. Ferrars DID come to see them, and always treated them
+But so it was.  Instead of falling a sacrifice to an irresistible
+Between Barton and Delaford, there was that constant communication
+\end{verbatim}
+\item {\bf Analysis:}
+This command looks for any lines starting with a capital B. It then highlights the B in red.
+\end{itemize}
+\item {\bf Command}: \Q{grep \texttt{-{}-}color=auto l\textdollar {} 161.txt}
+\begin{itemize}
+\item {\bf Prediction:}
+This command will look for any line that ends in l, highlight the l, and return each line.
+\item {\bf Section of actual output}
+\begin{verbatim}
+liability to you for damages, costs and expenses, including legal
+goals and ensuring that the Project Gutenberg-tm collection will
+state of Mississippi and granted tax exempt status by the Internal
+809 North 1500 West, Salt Lake City, UT 84116, (801) 596-1887, email
+information can be found at the Foundation's web site and official
+\end{verbatim}
+\item {\bf Analysis:}
+This looked for any line that ends in l, highlighted the l, and returned each line.
+\end{itemize}
+\item {\bf Command}: \Q{grep \texttt{-{}-}color=auto "\textbackslash.\textdollar"  161.txt}
+\begin{itemize}
+\item {\bf Prediction:}
+This command will search for any line that ends in a period, highlight the period, and return the whole line.
+\item {\bf Section of actual output}
+\begin{verbatim}
+works.
+Gutenberg-tm eBooks with only a loose network of volunteer support.
+editions, all of which are confirmed as Public Domain in the U.S.
+keep eBooks in compliance with any particular paper edition.
+subscribe to our email newsletter to hear about new eBooks.
+\end{verbatim}
+\item {\bf Analysis:}
+This command searched for any line that ended in a period, highlighted the period, and returned the whole line.
+\end{itemize}
+\item {\bf Command}: \Q{grep -v  \texttt{-{}-}color=auto  "the" 161.txt}
+\begin{itemize}
+\item {\bf Prediction:}
+Not sure on this one. It will search for the word "the" and highlight it in red but not sure about the -v.
+\item {\bf Section of actual output}
+\begin{verbatim}
+     http://www.gutenberg.net
+
+This Web site includes information about Project Gutenberg-tm,
+Archive Foundation, how to help produce our new eBooks, and how to
+subscribe to our email newsletter to hear about new eBooks.
+\end{verbatim}
+\item {\bf Analysis:}
+Returns all lines that does not have a "the" in it.
+\end{itemize}
+\item {\bf Command}: \Q{grep -v  \texttt{-{}-}color=auto " the " 161.txt}
+\begin{itemize}
+\item {\bf Prediction:}
+This command will search for sentences that have the string " the ". including the spaces, and return all other lines that do not match this criteria.
+\item {\bf Section of actual output}
+\begin{verbatim}
+     http://www.gutenberg.net
+
+This Web site includes information about Project Gutenberg-tm,
+Archive Foundation, how to help produce our new eBooks, and how to
+subscribe to our email newsletter to hear about new eBooks.
+\end{verbatim}
+\item {\bf Analysis:}
+This command searched for sentences that have the string " the ". including the spaces, and returned all other lines that did not match this criteria.
+\end{itemize}
+\item {\bf Command}: \Q{grep \texttt{-{}-}color=auto ".oo.ness" 161.txt}
+\begin{itemize}
+\item {\bf Prediction:}
+This command will search for any line that has "oo" then "ness" in a line. highlight the word, then return the line.
+\item {\bf Section of actual output}
+\begin{verbatim}
+and I feel the goodness of Colonel Brandon most sensibly.  There are
+for I cannot be ignorant that to you, to your goodness, I owe it
+she hoped no coolness, no slight, would appear in their behaviour to
+his goodness--with a conviction of his fond attachment to herself,
+between themselves, or producing coolness between their husbands.
+\end{verbatim}
+\item {\bf Analysis:}
+This command searched for any line that has "oo" then "ness" in a line. highlighted the word, then returned the line.
+\end{itemize}
+\item {\bf Command}: \Q{grep \texttt{-{}-}color=auto T[a-z]* 161.txt}
+\begin{itemize}
+\item {\bf Prediction:}
+This command will search for T followed by some letter then anything else. It will then return the lines and highlight the results.
+\item {\bf Section of actual output}
+\begin{verbatim}
+where we have not received written confirmation of compliance.  To
+SEND DONATIONS or determine the status of compliance for any
+donations.  To donate, please visit: http://pglaf.org/donate
+unless a copyright notice is included.  Thus, we do not necessarily
+This Web site includes information about Project Gutenberg-tm,
+\end{verbatim}
+\item {\bf Analysis:}
+This command searched for T followed by some letter then anything else. It returned the lines and highlighted the results.
+\end{itemize}
+\item {\bf Command}: \Q{grep -E  \texttt{-{}-}color=auto "bo+" 161.txt}
+\begin{itemize}
+\item {\bf Prediction:}
+This command will find any words that start with "bo" with characters at the end or the end of line.
+\item {\bf Section of actual output}
+\begin{verbatim}
+Section 3.  Information about the Project Gutenberg Literary Archive
+Section 4.  Information about Donations to the Project Gutenberg
+Section 5.  General Information About Project Gutenberg-tm electronic
+This Web site includes information about Project Gutenberg-tm,
+subscribe to our email newsletter to hear about new eBooks.
+\end{verbatim}
+\item {\bf Analysis:}
+This command searched for any lines that had "bo" and returned the whole line, highlighting the results.
+\end{itemize}
+\item {\bf Command}: \Q{egrep \texttt{-{}-}color=auto "bo+" 161.txt}
+\begin{itemize}
+\item {\bf Prediction:}
+Same as the commend before this. Not sure what egrep vs grep would do.
+\item {\bf Section of actual output}
+\begin{verbatim}
+Section 3.  Information about the Project Gutenberg Literary Archive
+Section 4.  Information about Donations to the Project Gutenberg
+Section 5.  General Information About Project Gutenberg-tm electronic
+This Web site includes information about Project Gutenberg-tm,
+subscribe to our email newsletter to hear about new eBooks.
+\end{verbatim}
+\item {\bf Analysis:}
+Same as the commend before this. No noticeable difference.
+\end{itemize}
+
+\item {\bf Command}: \Q{grep \texttt{-{}-}color=auto the 161.txt}
+\begin{itemize}
+\item {\bf Prediction:}
+Searches for the word "the" and returns lines with that word.
+\item {\bf Section of actual output}
+\begin{verbatim}
+methods and addresses.  Donations are accepted in a number of other
+Professor Michael S. Hart is the originator of the Project Gutenberg-tm
+editions, all of which are confirmed as Public Domain in the U.S.
+Most people start at our Web site which has the main PG search facility:
+including how to make donations to the Project Gutenberg Literary
+\end{verbatim}
+\item {\bf Analysis:}
+Searches for the string "the" and returns lines with that string.
+\end{itemize}
+\item {\bf Command}: \Q{grep \texttt{-{}-}color=auto .oo. 161.txt }
+\begin{itemize}
+\item {\bf Prediction:}
+This command will search for "oo" and turn lines with that string.
+\item {\bf Section of actual output}
+\begin{verbatim}
+Gutenberg-tm eBooks with only a loose network of volunteer support.
+Project Gutenberg-tm eBooks are often created from several printed
+keep eBooks in compliance with any particular paper edition.
+Archive Foundation, how to help produce our new eBooks, and how to
+subscribe to our email newsletter to hear about new eBooks.
+\end{verbatim}
+\item {\bf Analysis:}
+This command searched for "oo" and turned lines with that string.
+\end{itemize}
+\item {\bf Command}: \Q{grep -n \texttt{-{}-}color=auto .oo. 161.txt} 
+\begin{itemize}
+\item {\bf Prediction:}
+This command will search for the string "oo", return the lines with that string, and do something with the formating of those lines.
+\item {\bf Section of actual output}
+\begin{verbatim}
+13012:Gutenberg-tm eBooks with only a loose network of volunteer support.
+13015:Project Gutenberg-tm eBooks are often created from several printed
+13018:keep eBooks in compliance with any particular paper edition.
+13027:Archive Foundation, how to help produce our new eBooks, and how to
+13028:subscribe to our email newsletter to hear about new eBooks.
+\end{verbatim}
+\item {\bf Analysis:}
+This command searched for the string "oo", returned the lines with that string, and gave the line number on the left.
+\end{itemize}
+\item {\bf Command}: \Q{grep  -n \texttt{-{}-}color=auto  "t[wo]o" 161.txt}
+\begin{itemize}
+\item {\bf Prediction:}
+This command will search for "to" or "two" and return the lines with their line numbers on the left.
+\item {\bf Section of actual output}
+\begin{verbatim}
+12558:in which their husbands of course took a part, as well as the frequent
+12568:his brother too little, or bringing himself too much;--and if Edward
+12600:than herself under the event of a former attachment, whom, two years
+12601:before, she had considered too old to be married,--and who still sought
+13012:Gutenberg-tm eBooks with only a loose network of volunteer support.
+\end{verbatim}
+\item {\bf Analysis:}
+This command searched for "to" or "two" and returned the lines with their line numbers on the left.
+\end{itemize}
+
+\item {\bf Command}: \Q{grep  -n \texttt{-{}-}color=auto  "t[wo]o. " 161.txt}
+\begin{itemize}
+\item {\bf Prediction:}
+This command will search for "to " or "two " and return the lines with their line numbers on the left. Spaces included.
+\item {\bf Section of actual output}
+\begin{verbatim}
+6234:together at Barton?  The morning that we parted too!  When he told me
+6394:finishing her wine!  And the dried cherries too!  Lord! nothing seems
+8982:too.  But why should not I wear pink ribbons?  I do not care if it IS
+11020:day or two.  Good bye."
+11924:she wished that she had shaken hands with him too.  But it was then too
+\end{verbatim}
+\item {\bf Analysis:}
+This command searched for "to" or "two " with punctuation being allowed after the string, and returned the lines with their line numbers on the left.
+\end{itemize}
+\item {\bf Command}: \Q{grep  -n \texttt{-{}-}color=auto  "t[wo]o[\textasciicircum k] " 161.txt}
+\begin{itemize}
+\item {\bf Prediction:}
+This command will search for "to", "two", or "tok" the return results with a line number in front of the results.
+\item {\bf Section of actual output}
+\begin{verbatim}
+11931:took a seat as far from him as she could, and maintained a strict
+11935:awful pause took place.  It was put an end to by Mrs. Dashwood, who
+11962:knowing what to do; took up a pair of scissors that lay there, and
+12467:till every thing was ready, and the ceremony took place in Barton
+12558:in which their husbands of course took a part, as well as the frequent
+\end{verbatim}
+\item {\bf Analysis:}
+The command searched for "too", "took", and "two" and returned the results with the line number on the left.
+\end{itemize}
+
+\item {\bf Command}: \Q{grep -i \texttt{-{}-}color=auto most 161.txt} 
+\begin{itemize}
+\item {\bf Prediction:}
+This command will search for "most" with some kind of indentation. 
+\item {\bf Section of actual output}
+\begin{verbatim}
+conduct, her most favourite maxims.  She was born to overcome an
+as the least considerable, that though sisters, and living almost
+things that you can do with most Project Gutenberg-tm electronic works
+what you can do with this work.  Copyright laws in most countries are in
+almost no restrictions whatsoever.  You may copy it, give it away or
+Most people start at our Web site which has the main PG search facility:
+\end{verbatim}
+\item {\bf Analysis:}
+This command will search for "most" and list the results regardless if upper or lower case. 
+\end{itemize}
+\item {\bf Command}: \Q{grep -i \texttt{-{}-}color=auto \textasciicircum most 161.txt}
+\begin{itemize}
+\item {\bf Prediction:}
+This  command  will  search  for  ”most” regardless if upper or lower case.
+\item {\bf Section of actual output}
+\begin{verbatim}
+most complete thing of its kind, he said, that ever was, and you all
+most gratifying to her feelings!  It was an advantage that could not be
+most immoderately.  The idea of Edward's being a clergyman, and living
+most wearing anxiety seemed to make requisite, was kept off by
+Most people start at our Web site which has the main PG search facility:
+\end{verbatim}
+\item {\bf Analysis:}
+This  command searched  for lines starting with ”most”.
+\end{itemize}
+
+\item {\bf Command}: \Q{grep \texttt{-{}-}color=auto "n.n." 161.txt}
+\begin{itemize}
+\item {\bf Prediction:}
+This command will look for any strings that match n(some character)n(character).
+\item {\bf Section of actual output}
+\begin{verbatim}
+Volunteers and financial support to provide volunteers with the
+and permanent future for Project Gutenberg-tm and future generations.
+The Project Gutenberg Literary Archive Foundation is a non profit
+($1 to $5,000) are particularly important to maintaining tax exempt
+any statements concerning tax treatment of donations received from
+\end{verbatim}
+\item {\bf Analysis:}
+This command looked for any strings that matched n(some character)n(character).
+\end{itemize}
+\item {\bf Command}: \Q{grep \texttt{-{}-}color=auto "n.n.*" 161.txt}
+\begin{itemize}
+\item {\bf Prediction:}
+This command will search for n(character)n(character)(punctuation).
+\item {\bf Section of actual output}
+\begin{verbatim}
+Volunteers and financial support to provide volunteers with the
+and permanent future for Project Gutenberg-tm and future generations.
+The Project Gutenberg Literary Archive Foundation is a non profit
+($1 to $5,000) are particularly important to maintaining tax exempt
+any statements concerning tax treatment of donations received from
+\end{verbatim}
+\item {\bf Analysis:}
+This command will search for n(character)n(character)(punctuation) and highlight the n(character)n-and everything after that.
+\end{itemize}
+\item {\bf Command}: \Q{grep \texttt{-{}-}color=auto "n..n." 161.txt}
+\begin{itemize}
+\item {\bf Prediction:}
+This command will look for any strings that match n(some character)(character)n(character).
+\item {\bf Section of actual output}
+\begin{verbatim}
+Project Gutenberg-tm depends upon and cannot survive without wide
+increasing the number of public domain and licensed works that can be
+ways including including checks, online payments and credit card
+with anyone.  For thirty years, he produced and distributed Project
+editions, all of which are confirmed as Public Domain in the U.S.
+\end{verbatim}
+\item {\bf Analysis:}
+This command searched for any strings that match n(some character)(character)n(character).
+\end{itemize}
+\item {\bf Command}: \Q{grep \texttt{-{}-}color=auto "n[\textasciicircum {} ][\textasciicircum {} ]n." 161.txt}
+\begin{itemize}
+\item {\bf Prediction:}
+This will search for n(character or punctuation)(character or punctuation)n(character) and return the results.
+\item {\bf Section of actual output}
+\begin{verbatim}
+     and discontinue all use of and all access to other copies of
+receive a refund of the money (if any) you paid for it by sending a
+trademark owner, any agent or employee of the Foundation, anyone
+ways including including checks, online payments and credit card
+with anyone.  For thirty years, he produced and distributed Project
+\end{verbatim}
+\item {\bf Analysis:}
+This command searched for n(character)(character)n.
+\end{itemize}
+
+\item {\bf Command}: \Q{grep  \texttt{-{}-}color=auto"\textasciicircum\textbackslash(.*\textbackslash)," 161.txt}
+\begin{itemize}
+\item {\bf Prediction:}
+This command will search for anything that has two backslashes and ends with a comma.
+\item {\bf Section of actual output}
+\begin{verbatim}
+with anyone.  For thirty years, he produced and distributed Project
+editions, all of which are confirmed as Public Domain in the U.S.
+unless a copyright notice is included.  Thus, we do not necessarily
+This Web site includes information about Project Gutenberg-tm,
+Archive Foundation, how to help produce our new eBooks, and how to
+\end{verbatim}
+\item {\bf Analysis:}
+This command searches for anything that has a , in the line and highlights everything before.
+\end{itemize}
+\item {\bf Command}: \Q{egrep  \texttt{-{}-}color=auto "\textasciicircum\textbackslash(.*\textbackslash)," 161.txt}
+\begin{itemize}
+\item {\bf Prediction:}
+Same command as regular grep command.
+\item {\bf Section of actual output}
+\begin{verbatim}
+
+\end{verbatim}
+\item {\bf Analysis:}
+This command did not result.
+\end{itemize}
+\item {\bf Command}: \Q{egrep  \texttt{-{}-}color=auto "\textasciicircum(.*)," 161.txt}
+\begin{itemize}
+\item {\bf Prediction:}
+This command will search for anything that has a comma and highlight everything before it.
+\item {\bf Section of actual output}
+\begin{verbatim}
+with anyone.  For thirty years, he produced and distributed Project
+editions, all of which are confirmed as Public Domain in the U.S.
+unless a copyright notice is included.  Thus, we do not necessarily
+This Web site includes information about Project Gutenberg-tm,
+Archive Foundation, how to help produce our new eBooks, and how to
+\end{verbatim}
+\item {\bf Analysis:}
+This command searched for anything that has a comma and highlighted everything before it.
+\end{itemize}
+\item {\bf Command}: \Q{egrep \texttt{-{}-}color=auto ",\textbackslash(.*\textbackslash)\textdollar" 161.txt}
+\begin{itemize}
+\item {\bf Prediction:}
+This command will find anything that has a command at the end of the line and highlight everything before it.
+\item {\bf Section of actual output}
+\begin{verbatim}
+
+\end{verbatim}
+\item {\bf Analysis:}
+This command did not run for me.
+\end{itemize}
+\item {\bf Command}: \Q{egrep \texttt{-{}-}color=auto ",(.*)\textdollar" 161.txt}
+\begin{itemize}
+\item {\bf Prediction:}
+The command will search for anything that has a comma then highlight everything after it.
+\item {\bf Section of actual output}
+\begin{verbatim}
+with anyone.  For thirty years, he produced and distributed Project
+editions, all of which are confirmed as Public Domain in the U.S.
+unless a copyright notice is included.  Thus, we do not necessarily
+This Web site includes information about Project Gutenberg-tm,
+Archive Foundation, how to help produce our new eBooks, and how to
+\end{verbatim}
+\item {\bf Analysis:}
+The command searched for anything that had a comma then highlighted everything after it, including the comma.
+\end{itemize}
+\item {\bf Command}: \Q{egrep  \texttt{-{}-}color=auto ",\textbackslash(.*\textbackslash)\textbackslash." 161.txt}
+\begin{itemize}
+\item {\bf Prediction:}
+This command will do nothing for me.
+\item {\bf Section of actual output}
+\begin{verbatim}
+
+\end{verbatim}
+\item {\bf Analysis:}
+This command did nothing for me.
+\end{itemize}
+\item {\bf Command}: \Q{egrep \texttt{-{}-}color=auto  "Th[\textasciicircum[:space:]]+" 161.txt}
+\begin{itemize}
+\item {\bf Prediction:}
+This command will search for any line that has a "th" then some character then a space and is not at the end of the line.
+\item {\bf Section of actual output}
+\begin{verbatim}
+Revenue Service.  The Foundation's EIN or federal tax identification
+The Foundation's principal office is located at 4557 Melan Dr. S.
+The Foundation is committed to complying with the laws regulating
+unless a copyright notice is included.  Thus, we do not necessarily
+This Web site includes information about Project Gutenberg-tm,
+\end{verbatim}
+\item {\bf Analysis:}
+This command searched for any line that has a "th" then some character then a space and was not at the end of the line.
+\end{itemize}
+
+\item {\bf Command}: \Q{egrep \texttt{-{}-}color=auto  "t[a-z][a-z]k" 161.txt}
+\begin{itemize}
+\item {\bf Prediction:}
+This command will search for anything that has a "t"(letter)(letter)"t".
+\item {\bf Section of actual output}
+\begin{verbatim}
+till every thing was ready, and the ceremony took place in Barton
+the rest followed in course.  Instead of talking of Edward, they came
+gradually to talk only of Robert,--a subject on which he had always
+in which their husbands of course took a part, as well as the frequent
+ever appeared in Robert's style of living or of talking to give a
+\end{verbatim}
+\item {\bf Analysis:}
+This command searched for anything that has a "t"(letter)(letter)"t" and returned the line.
+\end{itemize}
+\item {\bf Command}: \Q{egrep \texttt{-{}-}color=auto -o "t[a-z][a-z]k" 161.txt}
+\begin{itemize}
+\item {\bf Prediction:}
+This command will search for anything that has a "t"(letter)(letter)"t" and order the lines by the individual orders sorted.
+\item {\bf Section of actual output}
+\begin{verbatim}
+took
+talk
+talk
+took
+talk
+\end{verbatim}
+\item {\bf Analysis:}
+This command searched for anything that has a "t"(letter)(letter)"t" and returned only the words one per line.
+\end{itemize}
+\item {\bf Command}: \Q{egrep -o "t[a-z][a-z]k" 161.txt $|$ sort $|$ uniq -u}
+\begin{itemize}
+\item {\bf Prediction:}
+Write about prediction here.
+\item {\bf Section of actual output}
+\begin{verbatim}
+trok
+\end{verbatim}
+\item {\bf Analysis:}
+Search for unique words that have "t"(letter)(letter)"t" and only appears once.
+\end{itemize}
+\item {\bf Command}: \Q{egrep -o "t[a-z][a-z]k" 161.txt $|$ sort $|$ uniq -d}
+\begin{itemize}
+\item {\bf Prediction:}
+Search for unique words that have "t"(letter)(letter)"t" and return the words only descending.
+\item {\bf Section of actual output}
+\begin{verbatim}
+tack
+talk
+task
+tock
+took
+trik
+\end{verbatim}
+\item {\bf Analysis:}
+Search for unique words that have "t"(letter)(letter)"t" and return the words, regardless of how many times each word has appeared.
+\end{itemize}
+\item {\bf Command}: \Q{egrep -o "t[a-z][a-z]k" 161.txt $|$ sort $|$ uniq -d $|$ wc}
+\begin{itemize}
+\item {\bf Prediction:}
+Search for words that follow the same pattern of "t"(letter)(letter)"t" and return the words, sorted, with word counts. 
+\item {\bf Section of actual output}
+\begin{verbatim}
+      6       6      30
+\end{verbatim}
+\item {\bf Analysis:}
+Calculates the word counts for words matching the pattern "t"(letter)(letter)"t".
+\end{itemize}
+\item {\bf Command}: \Q{grep the *}
+\begin{itemize}
+\item {\bf Prediction:}
+Search all text files for the string "the".
+\item {\bf Section of actual output}
+\begin{verbatim}
+161.txt:methods and addresses.  Donations are accepted in a number of other
+161.txt:Professor Michael S. Hart is the originator of the Project Gutenberg-tm
+161.txt:editions, all of which are confirmed as Public Domain in the U.S.
+161.txt:Most people start at our Web site which has the main PG search facility:
+161.txt:including how to make donations to the Project Gutenberg Literary
+\end{verbatim}
+\item {\bf Analysis:}
+Search all text files for the string "the" and list the file on the left.
+\end{itemize}
+\item {\bf Command}: \Q{grep -h *}
+\begin{itemize}
+\item {\bf Prediction:}
+Grab the top line for each text file and list the file on the left.
+\item {\bf Section of actual output}
+\begin{verbatim}
+grep: kitty: Is a directory
+grep: sampledir: Is a directory
+\end{verbatim}
+\item {\bf Analysis:}
+Searched for items in current directory that are directories.
+\end{itemize}
+
+\item {\bf Command}: \Q{grep -oh the * $|$ wc}
+\begin{itemize}
+\item {\bf Prediction:}
+List files in current directory with the string "the" and how many times it appears in each file.
+\item {\bf Section of actual output}
+\begin{verbatim}
+grep: kitty: Is a directory
+grep: sampledir: Is a directory
+   7060    7060   28240
+\end{verbatim}
+\item {\bf Analysis:}
+List files in current directory with the string "the" and how many times it appears in each file. It does not give the name of the file.
+\end{itemize}
+
+\end{enumerate}
+\hrule{}
+
+\newcommand{\vsp}{\vskip 0.25in}
+
+\begin{verbatim}
+https://www.gutenberg.org/files/46/46-0.txt
+
+\end{verbatim}
+
+\end{document}

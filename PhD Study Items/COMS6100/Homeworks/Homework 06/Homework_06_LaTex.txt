@@ -1,0 +1,177 @@
+documentclass[11pt]{article}
+usepackage{amsmath}
+usepackage{graphicx}
+%author{bf Facey}
+title{bf COMS 6100 - Homework 06}
+date{ today}
+begin{document}
+	maketitle
+
+
+
+%begin{verbatim}
+%end{verbatim}
+
+newcommand{vsp}{vskip 0.25in}
+
+begin{enumerate}
+
+
+item Open the file using vim. 
+vsp
+begin{verbatim}
+    vim 161-vim.txt
+end{verbatim}
+item Turn on the line numbers. 
+vsp
+begin{verbatim}
+    set number
+end{verbatim}
+item Turn on the highlighting of search results. 
+vsp
+begin{verbatim}
+    set hls
+end{verbatim}
+item Turn on the spell checker. 
+vsp
+begin{verbatim}
+    setlocal spell
+end{verbatim}
+item Turn on the ruler.
+vsp
+begin{verbatim}
+    set ruler
+end{verbatim}
+item At the very end of the file, add a line that says  This is the end of the file. 
+vsp
+begin{verbatim}
+    $
+    eeeeeeeeeeea
+     This is the end of the file
+end{verbatim}
+item Go to line 500, and center it on the screen.
+vsp
+begin{verbatim}
+    500
+end{verbatim}
+item Go to line 496 Replace the word “love” with “fish”. (You can just delete and replace this manually.) vsp
+begin{verbatim}
+    496
+    xxxxi
+    fish
+end{verbatim}
+item Undo that change. It was silly. 
+vsp
+begin{verbatim}
+    U
+end{verbatim}
+item Replace the paragraph from lines 545 to 546 with the lines 
+This is a replacement 
+This is a replacement 
+vsp
+begin{verbatim}
+    dd
+    dd
+    a
+    This is a replacement
+    This is a pl
+end{verbatim}
+item Find the first occurrence of the string “piano.” (What was the line number) 
+vsp
+begin{verbatim}
+    545
+    S
+    This is a replacement.
+    546
+    S
+    This is a replacement.
+end{verbatim}
+item Find the second occurrence of the string “piano”. (What was the line number) 
+vsp
+begin{verbatim}
+    piano
+    
+    (Line 926)
+end{verbatim}
+item Do a global search and replace of all the words ”pianoforte” and change them to ”piano-forte”. 
+vsp
+begin{verbatim}
+    %spianofortepiano-forteg
+end{verbatim}
+item Change all the words in the file that are spelled ‘behaviour” to the correct spelling “behavior”. 
+vsp
+begin{verbatim}
+    %sbehaviourbehaviorg
+end{verbatim}
+item Repeat with “humour” and “humor” 
+vsp
+begin{verbatim}
+    %shumourhumorg
+end{verbatim}
+item Delete the paragraph that is between lines 517 and 522. (I suggest using the visual mode, but you can do this other ways as well.)
+vsp
+begin{verbatim}
+    517
+    5dd
+end{verbatim}
+item Move two paragraphs forward using keyboard commands
+vsp
+begin{verbatim}
+    2}
+end{verbatim}
+item Paste the deleted paragraph after the second paragraph.
+vsp
+begin{verbatim}
+    p
+end{verbatim}
+item Find the paragraph that starts with “Elinor had given her real opinion...”. Set a mark at the beginning of the paragraph. 
+vsp
+begin{verbatim}
+    Elinor had given her real opinion
+    ma
+end{verbatim}
+item Using the delete to mark command, delete this paragraph
+vsp
+begin{verbatim}
+    d'}
+end{verbatim}
+item Split the window into two. Move the cursor into the lower window. Then delete the window. 
+vsp
+begin{verbatim}
+    ctrl+w
+    v
+    ctrl+w
+    l
+    ctrl+w
+    q
+end{verbatim}
+item Execute the shell command ls. 
+vsp
+begin{verbatim}
+    !ls
+end{verbatim}
+item Add the following text to the top 3 lines of the file 
+YOUR NAME 
+COMS 6100 
+Assignment #6 
+vsp
+begin{verbatim}
+    gg
+    i
+    Roberto Facey
+    COMS 6100
+    Assignment 6
+end{verbatim}
+item Write the file into a new filename - “161-edited.txt”. 
+vsp
+begin{verbatim}
+    -w 161-edit.txt
+end{verbatim}
+item Upload this file to the D2L dropbox.
+ 
+end{enumerate}
+bigskip
+
+		
+
+end{document}

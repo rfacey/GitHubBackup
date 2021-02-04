@@ -1,0 +1,123 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+
+\title{Pokémon Catch Rate}
+\author{Roberto Facey}
+\date{August 2020}
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+
+The Pokémon game series was launched in 1996. The theme of each game has been to catch different monsters called Pokémon (short for Pocket Monsters). There have been a couple of different algorithms use to determined the likelihood of capturing Pokémon. 
+
+The general steps of capturing a Pokémon are:
+\begin{enumerate}
+    \item Encounter the wild Pokémon
+    \item Weaken/Change the status of the wild Pokémon
+    \item Throw a Poké Ball
+\end{enumerate}
+
+After the third generation of games, the modified catch rate, a, is calculated as follows:
+
+\begin{equation}
+    a = \frac{(3 * HP_{max} - 2 * HP_{current}) * rate * bonus_{ball}} {3 * HP_{max}} + bonus_{status}
+\end{equation}
+
+The catch rate is maxed at 255 so anything equaling 255 or higher will lead to a successful capture. Anything below 255 means the chance of capturing the Pokémon is not guaranteed. 
+
+\section{Breakdown}
+
+There are different things that can change the chances of the player catching a Pokémon. In the above algorithm, there are five: \\
+\begin{itemize}
+    \item The number of hit points the Pokémon has at full health
+    \item The number of hit points the Pokémon has at the moment
+    \item The catch rate of the Pokémon
+    \item The multiplier for the Poké Ball used
+    \item The multiplier for any status condition the Pokémon has
+    \\
+\end{itemize}
+
+\subsection{HP Max}
+$HP_{max}$ is the number of hit points the Pokémon has at full health. Each Pokémon starts with a certain number of hit points and changes based on a hand full of variables. These variables can include the Pokémon's level, nature, and what type of Pokémon it is.
+\subsection{HP Current}
+$HP_{current}$ is the number of hit points the Pokémon has at the moment. As Pokémon battle, the number of hit points each Pokémon can lower. Players can lower wild Pokémon's hit points before trying to capture them. If the wild Pokémon's hit points drops to zero, the wild Pokémon will faint and be lost. The player cannot capture fainted Pokémon.
+\subsection{Rate}
+$Rate$ is the catch rate of the Pokémon. Pokémon with higher catch rates are easier to capture. These can vary for some Pokémon depending on the game, but all Pokémon will have a catch rate between 3 and 255. Generally speaking, the more common the Pokémon, the higher the catch rate it will have. A Python script has been added to this folder to help find this variable. It can be ran using the following command:
+
+\begin{verbatim}
+    Python CatchRateFinder.py PokemonCatchRate.csv
+\end{verbatim}
+
+The results should look as follows: \\
+\begin{center}
+\includegraphics[scale=0.5]{CatchRateCheck.png}
+\end{center}
+
+\subsection{Bonus Ball}
+The multiplier for classic Poké Balls are:
+
+\begin{center}
+    \begin{tabular}{|c|c|c|c|}
+    \hline
+    & Ball & Rate & Notes \\
+    \hline
+    \includegraphics{Bag_Poké_Ball_Sprite.png} & Poké Ball & 1x & \\
+    \hline
+    \includegraphics{Bag_Great_Ball_Sprite.png} & Great Ball & 1.5x & \\
+    \hline
+    \includegraphics{Bag_Ultra_Ball_Sprite.png} & Ultra Ball & 2x & \\
+    \hline
+    \includegraphics{Bag_Master_Ball_Sprite.png} & Master Ball & N/A & Never fails \\
+    \hline
+    \end{tabular}
+\end{center}
+
+The master ball automatically catches wild Pokémon.
+
+\subsection{Bonus Status}
+$Bonus_{status}$ is the multiplier for any status condition the Pokémon has. The figures shown in the table below are for the seventh generation of games onward:
+\begin{center}
+    \begin{tabular}{|c|c|}
+    \hline
+    Status & Figure \\
+    \hline
+    Frozen & 2.5 \\
+    \hline
+    Sleep & 2.5 \\
+    \hline
+    Paralysis & 1.5 \\
+    \hline
+    Burn & 1.5 \\
+    \hline
+    Poison & 1.5 \\
+    \hline
+    None & 1 \\
+    \hline
+    \end{tabular}
+\end{center}
+
+It should be noted that Frozen and Sleep both cause the wild Pokémon to be unable to use any actions.
+
+\section{Example}
+
+For the example, we will be using the base stats for a Pikachu. The $HP_{max}$ for a base stats Pikachu is 35. A player could theoretically lower the Pikachu's $HP_{current}$ to 1 HP and cause a status effect of Frozen. The catch rate for a Pikachu is 190. The player could also theoretically use an Ultra Ball. The equation would appear as follows when filled in:
+
+\begin{equation}
+    a = \frac{(3 * 35 - 2 * 1) * 190 * 2} {3 * 35} + 2.5 = 375.26
+\end{equation}
+
+Since the catch rate is greater than 255, the catch is guaranteed. 
+
+\section{References}
+
+\begin{verbatim}
+    https://www.serebii.net/games/capture.shtml
+    https://bulbapedia.bulbagarden.net/wiki/Catch_rate
+    https://bulbapedia.bulbagarden.net/wiki/List_of_Pokémon_by_catch_rate
+\end{verbatim}
+
+\end{document}
